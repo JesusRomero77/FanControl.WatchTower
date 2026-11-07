@@ -67,7 +67,7 @@ namespace WatchTower
 
         // Pregunta al usuario por FanControl.exe (o un acceso directo), comprueba que junto a él exista
         // Configurations\CACHE, recuerda la ruta y se la comunica a las pestañas. Lo usan el menú
-        // Configuración > Especificar Ruta Fan Control y las pestañas que piden la ruta.
+        // Configuración > Especificar ruta de FanControl y las pestañas que piden la ruta.
         private void SelectFanControlPath()
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
