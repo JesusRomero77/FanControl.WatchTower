@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="WatchTower.csproj" Id="3a1954df-dc6b-450b-bcc1-9e5211940000">
+    <Platform Project="x64" />
+  </Project>
+</Solution>

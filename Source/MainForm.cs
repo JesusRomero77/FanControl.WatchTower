@@ -186,7 +186,7 @@ namespace WatchTower
         }
 
         // Clic en un idioma del menú: cambia la interfaz a ese idioma y lo recuerda en los ajustes de la
-        // app. Pendiente: escribir también el idioma en el XML del log de CurveReader (decisión abierta).
+        // app. El idioma también se escribe en el XML de CurveReader la próxima vez que se guarde.
         private void LanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string languageName = (string)((ToolStripMenuItem)sender).Tag;

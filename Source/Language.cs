@@ -53,29 +53,29 @@ namespace WatchTower
             { TextId.Ok, "OK" },
             { TextId.HelpWindowTitle, "WatchTower Help" },
             { TextId.HelpRequirementsTitle, "Requirements" },
-            { TextId.HelpRequirementsText, "Windows with .NET Framework 4.8 installed. The CurveReader, DataServer and RemoteSensors tabs configure " +
-                "plugins, so FanControl and the matching plugin must be installed on this PC. The RemoteSensorLogger tab does not need FanControl " +
-                "here: it only needs network access to a PC running DataServer." },
+            { TextId.HelpRequirementsText, "Windows with .NET Framework 4.8 installed. The CurveReader, RemoteSensors and DataServer tabs " +
+                "configure plugins, so FanControl and the matching plugin must be installed on this PC. " +
+                "The RemoteSensorLogger tab does not need FanControl here: it only needs network access to a PC running DataServer." },
             { TextId.HelpGettingStartedTitle, "Getting started" },
             { TextId.HelpGettingStartedText, "The first time you run the app, go to Settings > Specify FanControl " +
                 "path and select FanControl.exe (or a shortcut to it). The app will locate your profiles automatically from then on." },
             { TextId.HelpTabsTitle, "The tabs" },
-            { TextId.HelpTabsText, "There is one tab per plugin: CurveReader (logs this PC's sensors and controls), DataServer (shares this PC's " +
-                "data over the network), RemoteSensors (shows another PC's sensors inside this FanControl) and RemoteSensorLogger (records " +
-                "the data of another PC's DataServer into a log)." },
+            { TextId.HelpTabsText, "There is one tab per plugin: CurveReader (logs this PC's sensors and controls), RemoteSensors " +
+                "(shows another PC's sensors inside this FanControl), DataServer (shares this PC's data over the network) and " +
+                "RemoteSensorLogger (records the data of another PC's DataServer into a log)." },
             { TextId.HelpSelectProfileTitle, "Selecting a profile" },
             { TextId.HelpSelectProfileText, "In the CurveReader tab, choose the profile you want to configure from the Profile dropdown. " +
                 "In the RemoteSensorLogger tab, fill in the connection boxes and use the button to get the profile from the remote PC. " +
                 "In both cases its controls and sensors will appear below, ready to edit." },
             { TextId.HelpConfigureItemsTitle, "Configuring sensors and controls" },
-            { TextId.HelpConfigureItemsText, "In CurveReader and RemoteSensorLogger, for each item, the log checkbox decides whether it is logged at all. " +
-                "\"Interval (sec)\" is the minimum time between two log entries for that item. " +
-                "\"Minimum change\" (1 to 10) sets how much the value must change before it gets logged again." },
+            { TextId.HelpConfigureItemsText, "In CurveReader and RemoteSensorLogger, for each item, the log checkbox decides whether " +
+                "it is logged at all. \"Interval (sec)\" is the minimum time between two log entries for that item. \"Minimum change\" " +
+                "(0 to 10) sets how much the value must change before it gets logged again; with 0 it is logged every time the interval passes." },
             { TextId.HelpNetworkTitle, "DataServer and RemoteSensors" },
-            { TextId.HelpNetworkText, "Set up DataServer with WatchTower running on the PC that has FanControl and the DataServer plugin: choose a port " +
-                "(or leave it empty for 8765) and a password. Set up RemoteSensors on the other PC with that PC's name or IP and the same port and " +
-                "password. The default password is public, so change it. Remote sensors are for monitoring only: never use them in curves or " +
-                "controls. After saving, restart the FanControl interface so the plugins read the changes." },
+            { TextId.HelpNetworkText, "Set up DataServer with WatchTower running on the PC that has FanControl and the DataServer plugin: " +
+                "choose a port (or leave it empty for 8765) and a password. Set up RemoteSensors on the other PC with that PC's name or " +
+                "IP and the same port and password. The default password is public, so change it. " +
+                "Remote sensors are for monitoring only: never use them in local curves or controls." },
             { TextId.HelpRecorderTitle, "Recording a remote log" },
             { TextId.HelpRecorderText, "In the RemoteSensorLogger tab, press REC to start recording the remote PC and STOP to finish. " +
                 "The status line shows the file being written and any problem, such as a wrong password or no new readings " +
@@ -98,8 +98,7 @@ namespace WatchTower
             { TextId.DataServerPassword, "Password:" },
             { TextId.DataServerPasswordTooltip, "The current password is \"{0}\". You can change it by typing a new one in this field." },
             { TextId.DataServerNote, "This tab must be used with WatchTower running on the same PC where DataServer is installed. " +
-                "Anyone who knows the password can connect and read the data. " +
-                "Restart the FanControl interface after saving for the plugin to read the changes." },
+                "Anyone who knows the password can connect and read the data."},
             { TextId.DataServerPluginMissing, "The DataServer plugin (FanControl.DataServer.dll) was not found in FanControl's Plugins folder. " +
                 "You can set the options here, but they will have no effect until the plugin is installed." },
             { TextId.ErrorTitle, "Error" },
@@ -185,29 +184,31 @@ namespace WatchTower
             { TextId.Ok, "Aceptar" },
             { TextId.HelpWindowTitle, "Ayuda de WatchTower" },
             { TextId.HelpRequirementsTitle, "Requisitos" },
-            { TextId.HelpRequirementsText, "Windows con .NET Framework 4.8 instalado. Las pestañas CurveReader, DataServer y RemoteSensors configuran " +
-                "plugins, así que en este PC deben estar instalados FanControl y el plugin correspondiente. La pestaña RemoteSensorLogger no necesita " +
-                "FanControl en este PC: solo acceso por red a un PC que ejecute DataServer." },
+            { TextId.HelpRequirementsText, "Windows con .NET Framework 4.8 instalado. Las pestañas CurveReader, RemoteSensors y " +
+                "DataServer configuran plugins, así que en este PC deben estar instalados FanControl y el plugin correspondiente. " +
+                "La pestaña RemoteSensorLogger no necesita FanControl en este PC: solo acceso por red a un PC que ejecute DataServer." },
             { TextId.HelpGettingStartedTitle, "Primeros pasos" },
             { TextId.HelpGettingStartedText, "La primera vez que ejecutes la app, ve a Configuración > Especificar ruta de " +
                 "FanControl y selecciona FanControl.exe (o un acceso directo). A partir de ahí la app localizará tus perfiles automáticamente." },
             { TextId.HelpTabsTitle, "Las pestañas" },
-            { TextId.HelpTabsText, "Hay una pestaña por plugin: CurveReader (registra los sensores y controles de este PC), DataServer (comparte " +
-                "los datos de este PC por la red), RemoteSensors (muestra los sensores de otro PC dentro de este FanControl) y RemoteSensorLogger " +
-                "(graba en un log los datos del DataServer de otro PC)." },
+            { TextId.HelpTabsText, "Hay una pestaña por plugin: CurveReader (registra los sensores y controles de este PC), " +
+                "RemoteSensors (muestra los sensores de otro PC dentro de este FanControl), " +
+                "DataServer (comparte los datos de este PC por la red) y " +
+                "RemoteSensorLogger (graba en un log los datos del DataServer de otro PC)." },
             { TextId.HelpSelectProfileTitle, "Elegir un perfil" },
             { TextId.HelpSelectProfileText, "En la pestaña CurveReader, elige el perfil que quieras configurar en el desplegable Perfil. " +
                 "En la pestaña RemoteSensorLogger, rellena los datos de conexión y usa el botón para obtener el perfil del PC remoto. " +
                 "En ambos casos sus controles y sensores aparecerán debajo, listos para editar." },
             { TextId.HelpConfigureItemsTitle, "Configurar sensores y controles" },
-            { TextId.HelpConfigureItemsText, "En CurveReader y RemoteSensorLogger, para cada elemento, la casilla Registro decide si se registra o no. " +
-                "\"Intervalo (seg)\" es el tiempo mínimo entre dos registros de ese elemento. " +
-                "\"Umbral de cambio\" (1 a 10) indica cuánto debe cambiar el valor antes de volver a registrarse." },
+            { TextId.HelpConfigureItemsText, "En CurveReader y RemoteSensorLogger, para cada elemento, la casilla Registro decide si se " +
+                "registra o no. \"Intervalo (seg)\" es el tiempo mínimo entre dos registros de ese elemento. \"Umbral de cambio\" (0 a 10) " +
+                "indica cuánto debe cambiar el valor antes de volver a registrarse; con 0 se registra cada vez que pasa el intervalo." },
             { TextId.HelpNetworkTitle, "DataServer y RemoteSensors" },
-            { TextId.HelpNetworkText, "Configura DataServer con WatchTower ejecutándose en el PC que tiene FanControl y el plugin DataServer: elige un " +
-                "puerto (o déjalo vacío para usar el 8765) y una contraseña. Configura RemoteSensors en el otro PC con el nombre o la IP de ese PC y " +
-                "el mismo puerto y contraseña. La contraseña predeterminada es pública, así que cámbiala. Los sensores remotos son solo para " +
-                "monitorizar: nunca los uses en curvas ni controles. Tras guardar, reinicia la interfaz de FanControl para que los plugins lean los cambios." },
+            { TextId.HelpNetworkText, "Configura DataServer con WatchTower ejecutándose en el PC que tiene FanControl y el plugin DataServer: " +
+                "elige un puerto (o déjalo vacío para usar el 8765) y una contraseña. " +
+                "Configura RemoteSensors en el otro PC con el nombre o la IP de ese PC y el mismo puerto y contraseña. " +
+                "La contraseña predeterminada es pública, así que cámbiala. " +
+                "Los sensores remotos son solo para monitorizar: nunca los uses en curvas ni controles locales." },
             { TextId.HelpRecorderTitle, "Grabar un log remoto" },
             { TextId.HelpRecorderText, "En la pestaña RemoteSensorLogger, pulsa GRABAR para empezar a grabar el PC remoto y PARAR para terminar. " +
                 "La línea de estado muestra el archivo que se está escribiendo y cualquier problema, como una contraseña incorrecta o la falta " +
@@ -231,8 +232,7 @@ namespace WatchTower
             { TextId.DataServerPassword, "Contraseña:" },
             { TextId.DataServerPasswordTooltip, "La contraseña actual es \"{0}\". Puedes cambiarla escribiendo otra en este campo." },
             { TextId.DataServerNote, "Esta pestaña debe usarse con WatchTower ejecutándose en el mismo PC donde esté instalado DataServer. " +
-                "Quien conozca la contraseña podrá conectar y leer los datos. " +
-                "Reinicia la interfaz de FanControl después de guardar para que el plugin lea los cambios." },
+                "Quien conozca la contraseña podrá conectar y leer los datos." },
             { TextId.DataServerPluginMissing, "No se ha encontrado el plugin DataServer (FanControl.DataServer.dll) " +
                 "en la carpeta Plugins de FanControl. " +
                 "Puedes configurar las opciones aquí, pero no tendrán efecto hasta que el plugin esté instalado." },
